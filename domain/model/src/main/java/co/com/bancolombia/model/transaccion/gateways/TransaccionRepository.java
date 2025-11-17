@@ -11,6 +11,6 @@ public interface TransaccionRepository {
     Flux<Transaccion> buscarPorIdUsuario(String idUsuario);
     Flux<Transaccion> buscarPorEstado(String estado);
     Mono<Transaccion> actualizar(Transaccion transaccion);
-    Mono<Transaccion> eliminarPorId(String id);
+    Mono<Void> eliminarPorId(String id);
 
 }
