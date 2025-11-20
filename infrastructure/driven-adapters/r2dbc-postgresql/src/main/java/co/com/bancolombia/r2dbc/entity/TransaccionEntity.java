@@ -45,6 +45,6 @@ public class TransaccionEntity {
     @Column("usuario_id")
     private String idUsuario;
 
-    @Column("puntaje_maximo")
+    @Column("puntaje_fraude")
     private Double puntajeFraude;
 }

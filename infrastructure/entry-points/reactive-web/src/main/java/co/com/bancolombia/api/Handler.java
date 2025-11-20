@@ -1,5 +1,6 @@
 package co.com.bancolombia.api;
 
+import co.com.bancolombia.api.dto.request.CrearTransaccionRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
@@ -11,6 +12,10 @@ import reactor.core.publisher.Mono;
 public class Handler {
 //private  final UseCase useCase;
 //private  final UseCase2 useCase2;
+
+    public Mono<ServerResponse> crearTransaccion(ServerRequest request) {
+        return request.bodyToMono(CrearTransaccionRequest.class);
+    }
 
     public Mono<ServerResponse> listenGETUseCase(ServerRequest serverRequest) {
         // useCase.logic();

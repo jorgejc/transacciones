@@ -4,6 +4,7 @@
 package co.com.bancolombia.r2dbc.mapper;
 
 import co.com.bancolombia.model.cuenta.Cuenta;
+import co.com.bancolombia.r2dbc.entity.CuentaEntity;
 import co.com.bancolombia.r2dbc.entity.TransaccionEntity;
 
 /**
@@ -16,7 +17,7 @@ import co.com.bancolombia.r2dbc.entity.TransaccionEntity;
 public class CuentaMapper {
 
     /**
-     * Método encargado de convertir el modelo de Dominio (Transaccion) al modelo de persistencia (TransaccionEntity).
+     * Método encargado de convertir el modelo de Dominio (Cuenta) al modelo de persistencia (CuentaEntity).
      * Esto ocurre cuando se guardan o actualizan datos en la BD (al actualizar un saldo)
      * <br>
      * <b>HU1:</b> Crear Transacción
@@ -25,10 +26,10 @@ public class CuentaMapper {
      * @return
      * @author Jorge Armando Julio Cruz <jjulio@heinsohn.com.co>
      */
-    public static TransaccionEntity toEntity(Cuenta cuenta) {
+    public static CuentaEntity toEntity(Cuenta cuenta) {
         if (cuenta == null) return null;
 
-        return TransaccionEntity.builder()
+        return CuentaEntity.builder()
                 .numeroCuenta(cuenta.getNumeroCuenta())
                 .idUsuario(cuenta.getIdUsuario())
                 .tipoCuenta(cuenta.getTipoCuenta())
@@ -39,7 +40,7 @@ public class CuentaMapper {
     }
 
     /**
-     * Método encargado de convertir el modelo de persistencia (TransaccionEntity) al modelo de dominio (Transaccion).
+     * Método encargado de convertir el modelo de persistencia (CuentaEntity) al modelo de dominio (Cuenta).
      * Esto ocurre cuando se recuperan datos de la BD
      * <br>
      * <b>HU1:</b> Crear Transacción
@@ -48,7 +49,7 @@ public class CuentaMapper {
      * @return
      * @author Jorge Armando Julio Cruz <jjulio@heinsohn.com.co>
      */
-    public static Cuenta toModel(TransaccionEntity entity) {
+    public static Cuenta toModel(CuentaEntity entity) {
         if (entity == null) return null;
 
         return Cuenta.builder()
